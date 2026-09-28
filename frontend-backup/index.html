@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Convert files locally through a simple AI chat." />
+    <title>Convertly — Local AI file conversion</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="intro-logo" aria-hidden="true"><span>↔</span> Convertly</div>
+    <header class="site-header">
+      <a class="brand" href="#home"><span>↔</span> Convertly</a>
+      <nav aria-label="Main navigation">
+        <a href="#home">Home</a><a href="#services">Services</a><a href="#about">About Us</a>
+        <a class="nav-cta" href="#workspace">Get Started <span>↗</span></a>
+      </nav>
+    </header>
+    <main>
+      <section class="hero" id="home">
+        <p class="eyebrow">LOCAL-FIRST FILE CONVERSION</p>
+        <h1>Tell your files<br /><em>what to become.</em></h1>
+        <p class="hero-copy">No format menus. Drop in a file and ask in plain language. Your local AI understands the request and handles the conversion without sending your file anywhere.</p>
+        <a class="primary-button" href="#workspace">Start converting <span>↓</span></a>
+        <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+      </section>
+      <section class="services" id="services">
+        <p class="eyebrow">HOW IT WORKS</p>
+        <div class="steps"><article><b>01</b><h2>Drop a file</h2><p>Choose a document, spreadsheet, or image from your computer.</p></article><article><b>02</b><h2>Ask naturally</h2><p>Say “turn this into a PNG” — your local AI reads the intent.</p></article><article><b>03</b><h2>Download it</h2><p>Get your converted file, with the work kept on your machine.</p></article></div>
+      </section>
+      <section class="workspace-section" id="workspace">
+        <div class="section-heading"><p class="eyebrow">YOUR WORKSPACE</p><h2>Let’s make a conversion.</h2><p>Upload a file, then tell Convertly what you need.</p></div>
+        <div class="workspace">
+          <div id="drop-zone" class="drop-zone" role="button" tabindex="0" aria-label="Choose a file or drop one here">
+            <input id="file-input" type="file" hidden />
+            <div class="upload-icon">↑</div><strong>Drop your file here</strong><span>or click to browse your computer</span><small id="file-status">No file selected</small>
+          </div>
+          <div class="chat-area">
+            <div class="chat-card">
+              <div class="chat-title"><span class="status-dot"></span> Convertly assistant <small>local</small></div>
+              <div id="chat-history" class="chat-history" aria-live="polite"><div class="message assistant">Hi! Upload a file, then tell me what you’d like to convert it into.</div></div>
+              <form id="chat-form" class="chat-form"><input id="chat-input" autocomplete="off" placeholder="e.g. Turn this into a PNG" aria-label="Conversion request" /><button id="send-button" type="submit" aria-label="Send message">↑</button></form>
+            </div>
+            <section id="conversion-panel" class="conversion-panel" hidden aria-live="polite">
+              <div class="conversion-meta"><strong id="conversion-label">Preparing conversion</strong><span id="conversion-percent">0%</span></div>
+              <div class="progress-track"><div id="progress-bar" class="progress-bar"></div></div>
+              <p id="conversion-detail">Your local converter is preparing the file.</p>
+              <a id="download-button" class="download-button" hidden download>Download converted file <span>↓</span></a>
+            </section>
+          </div>
+        </div>
+      </section>
+      <section class="about" id="about"><p class="eyebrow">PRIVATE BY DESIGN</p><h2>Your files stay<br />on your computer.</h2><p>Convertly runs with FastAPI, Python conversion tools, and Ollama on your own machine. It never calls a cloud AI service.</p></section>
+    </main>
+    <footer>© 2026 Convertly <span>Built local. Kept private.</span></footer>
+    <script src="app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Convert files locally through a simple AI chat. Secure, private, and lightning fast." />
+    <title>Convertly | Intelligent Local File Conversion</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Ambient Background Glows -->
+    <div class="ambient-glow glow-1"></div>
+    <div class="ambient-glow glow-2"></div>
+    <div class="ambient-glow glow-3"></div>
+
+    <!-- Intro Animation -->
+    <div class="intro-logo" aria-hidden="true">
+      <div class="logo-icon-large"></div>
+      Convertly
+    </div>
+
+    <!-- Sticky Navigation -->
+    <header class="site-header">
+      <a class="brand" href="#home">
+        <div class="logo-icon-small"></div>
+        Convertly
+      </a>
+      <nav aria-label="Main navigation">
+        <a href="#home" class="nav-link">Platform</a>
+        <a href="#features" class="nav-link">Capabilities</a>
+        <a href="#security" class="nav-link">Security</a>
+        <a class="nav-cta" href="#workspace">
+          <span>Initialize Workspace</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+        </a>
+      </nav>
+    </header>
+
+    <main>
+      <!-- Hero Section -->
+      <section class="hero reveal" id="home">
+        <div class="hero-badge">Local-First Architecture</div>
+        <h1>Command your files.<br /><em>Without the cloud.</em></h1>
+        <p class="hero-copy">Experience the next generation of file manipulation. No dropdown menus. No complex settings. Simply drop your file and command our local AI engine in plain English. Fast, flawless, and completely private.</p>
+        <div class="hero-actions">
+          <a class="primary-button" href="#workspace">
+            Launch Interface
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
+          </a>
+          <a class="secondary-button" href="#features">Explore capabilities</a>
+        </div>
+      </section>
+
+      <!-- Features Section -->
+      <section class="features reveal" id="features">
+        <div class="section-header">
+          <p class="eyebrow">INTELLIGENT WORKFLOW</p>
+          <h2>Frictionless conversion<br/>at the speed of thought.</h2>
+        </div>
+        <div class="bento-grid">
+          <article class="bento-card">
+            <div class="card-icon">01</div>
+            <h3>Upload Securely</h3>
+            <p>Drag and drop documents, spreadsheets, or high-res images directly into your secure local workspace. No server uploads required.</p>
+          </article>
+          <article class="bento-card">
+            <div class="card-icon">02</div>
+            <h3>Natural Directives</h3>
+            <p>Type commands like <i>"Extract this to a CSV"</i> or <i>"Compress to WebP"</i>. Our embedded LLM instantly parses your exact intent.</p>
+          </article>
+          <article class="bento-card">
+            <div class="card-icon">03</div>
+            <h3>Instant Output</h3>
+            <p>Your machine's processing power handles the transcoding instantly, providing a seamless download link right in the chat stream.</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- Workspace Section (The App) -->
+      <section class="workspace-section reveal" id="workspace">
+        <div class="section-heading">
+          <p class="eyebrow">ACTIVE WORKSPACE</p>
+          <h2>The Control Center</h2>
+          <p>Initialize a session by dropping a file below. Your AI assistant is standing by.</p>
+        </div>
+        
+        <div class="workspace-container">
+          <!-- Drop Zone -->
+          <div id="drop-zone" class="drop-zone glass-panel" role="button" tabindex="0" aria-label="Choose a file or drop one here">
+            <input id="file-input" type="file" hidden />
+            <div class="upload-indicator">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+            </div>
+            <strong>Initialize File Transfer</strong>
+            <span>Drag & drop or click to browse</span>
+            <div class="status-badge" id="file-status">System Ready: Awaiting Input</div>
+          </div>
+
+          <!-- Chat Area -->
+          <div class="chat-area glass-panel">
+            <div class="chat-header">
+              <div class="ai-identity">
+                <span class="status-pulse"></span>
+                <span>Convertly Core <span class="tag">Offline Mode</span></span>
+              </div>
+            </div>
+            
+            <div id="chat-history" class="chat-history" aria-live="polite">
+              <div class="message assistant">
+                <div class="avatar">C</div>
+                <div class="bubble">System initialized. Awaiting file payload and conversion parameters.</div>
+              </div>
+            </div>
+
+            <form id="chat-form" class="chat-form">
+              <input id="chat-input" autocomplete="off" placeholder="e.g., 'Convert this document to a PDF...'" aria-label="Conversion request" />
+              <button id="send-button" type="submit" aria-label="Send message">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+              </button>
+            </form>
+          </div>
+
+          <!-- Conversion Status Panel -->
+          <section id="conversion-panel" class="conversion-panel glass-panel" hidden aria-live="polite">
+            <div class="conversion-meta">
+              <strong id="conversion-label" class="gradient-text">Processing Directive</strong>
+              <span id="conversion-percent" class="percent-text">0%</span>
+            </div>
+            <div class="progress-track">
+              <div id="progress-bar" class="progress-bar"></div>
+            </div>
+            <p id="conversion-detail">Allocating local resources...</p>
+            <a id="download-button" class="download-button" hidden download>
+              <span>Download Artifact</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+            </a>
+          </section>
+        </div>
+      </section>
+
+      <!-- Security / About Section -->
+      <section class="security reveal" id="security">
+        <div class="glass-panel security-card">
+          <p class="eyebrow">ZERO-TRUST ARCHITECTURE</p>
+          <h2>Absolute Data Sovereignty.</h2>
+          <p>Your intellectual property never touches the internet. Convertly leverages FastAPI and embedded neural networks (Ollama) to execute all processing directly on your hardware's silicon. Uncompromising speed. Uncompromising privacy.</p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-content">
+        <div class="footer-brand">
+          <div class="logo-icon-small"></div>
+          <span>Convertly Engine v2.0</span>
+        </div>
+        <div class="footer-links">
+          <span>© 2026 Convertly Systems</span>
+          <span class="divider">•</span>
+          <span>100% Local Processing</span>
+        </div>
+      </div>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>
